@@ -1,0 +1,7 @@
+dataset/output/*
+!dataset/output/.gitkeep
+output/
+__pycache__/
+*.pyc
+.venv/
+*.log

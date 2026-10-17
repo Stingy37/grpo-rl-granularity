@@ -1,0 +1,12 @@
+# Installed by scripts/setup_env.sh into the conda env ~/.conda/envs/grpo-rl (python 3.12).
+# torch comes from https://download.pytorch.org/whl/cu129 and vllm from its +cu129 GitHub wheel:
+# the pod's driver is 570 (CUDA 12.8), which cannot run the CUDA-13 default wheels of torch>=2.12 / vllm>=0.28.
+vllm==0.26.0            # vllm-0.26.0+cu129-cp38-abi3-manylinux_2_28_x86_64.whl ; pins torch==2.11.0, flashinfer-python==0.6.14
+torch==2.11.0           # +cu129
+peft==0.21.2
+bitsandbytes==0.50.2
+faiss-cpu==1.13.2       # 1.15.1 corrupts multi-threaded batch IndexIVF search (see dataset/load_index.py)
+pyarrow
+accelerate
+huggingface_hub
+# NOT installed: torchcodec (pulled in by vllm as a CUDA-13 build that breaks `import vllm`; see scripts/setup_env.sh)
